@@ -22,7 +22,6 @@ public class Client {
             in =  new ListenerThread(new BufferedReader(new InputStreamReader(socket.getInputStream())));
             listener = new Thread(in);
         } catch (Exception e) {
-            System.out.println("Client failed to connect");
             System.exit(0);
         }
     }
@@ -34,18 +33,23 @@ public class Client {
             in =  new ListenerThread(new BufferedReader(new InputStreamReader(socket.getInputStream())));
             listener = new Thread(in);
         } catch (Exception e) {
-            System.out.println("Client failed to connect");
             System.exit(0);
         }
     }
 
     public Client() {
         try {
+            System.out.println("hej4");
             socket = new Socket("", 3300);
+            System.out.println("hej5");
             tgb = new Scanner(System.in);
+            System.out.println("hej6");
             out = new PrintWriter(socket.getOutputStream(), true);
+            System.out.println("hej7");
             in =  new ListenerThread(new BufferedReader(new InputStreamReader(socket.getInputStream())));
+            System.out.println("hej8");
             listener = new Thread(in);
+            System.out.println("hej9");
         } catch (Exception e) {
             System.out.println("Client failed to connect");
             System.exit(0);

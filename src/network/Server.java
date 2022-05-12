@@ -9,8 +9,11 @@ public class Server {
 
     public Server() {
         try {
+            System.out.println("hej");
             this.serverSocket = new ServerSocket();
+            System.out.println("hej2");
             this.ServerClient = new Client();
+            System.out.println("hej3");
             while (true) {
                 System.out.println("Waiting for connection");
                 this.ServerClient.socket = serverSocket.accept();
@@ -21,6 +24,7 @@ public class Server {
     }
 
     public void start() {
+        System.out.println("Den starta");
         this.ServerClient.start();
     }
 }
