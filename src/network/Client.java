@@ -9,12 +9,13 @@ import java.util.Scanner;
 
 public class Client {
     public Socket socket;
-    private Scanner tgb;
-    private PrintWriter out;
-    private ListenerThread in;
-    private Thread listener;
+    public Scanner tgb;
+    public PrintWriter out;
+    public ListenerThread in;
+    public Thread listener;
 
     public Client(String ip, int port) {
+        System.out.println(ip);
         try {
             socket = new Socket(ip, port);
             tgb = new Scanner(System.in);
@@ -38,22 +39,6 @@ public class Client {
     }
 
     public Client() {
-        try {
-            System.out.println("hej4");
-            socket = new Socket("", 3300);
-            System.out.println("hej5");
-            tgb = new Scanner(System.in);
-            System.out.println("hej6");
-            out = new PrintWriter(socket.getOutputStream(), true);
-            System.out.println("hej7");
-            in =  new ListenerThread(new BufferedReader(new InputStreamReader(socket.getInputStream())));
-            System.out.println("hej8");
-            listener = new Thread(in);
-            System.out.println("hej9");
-        } catch (Exception e) {
-            System.out.println("Client failed to connect");
-            System.exit(0);
-        }
     }
 
     public void start() {

@@ -7,7 +7,7 @@ public class Controller {
     public static void main(String[] args) {
         String option = (String) JOptionPane.showInputDialog(null, "Server or client?", JOptionPane.QUESTION_MESSAGE);
         if (option.equals("server")) {
-            Server server = new Server();
+            Server server = new Server(12345);
             server.start();
         } else {
             //String ip = (String) JOptionPane.showInputDialog(null,"IP?","Connect to..",JOptionPane.QUESTION_MESSAGE);
