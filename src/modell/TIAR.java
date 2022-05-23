@@ -47,6 +47,12 @@ public class TIAR {
     }
 
     private boolean horizontal() {
-        for (int i =)
+        boolean win = false;
+        for (int i = 0;i< this.field.length;i++) {
+            for (int j = 0;j< this.field.length;j++) {
+
+            }
+        }
+        return win;
     }
 }
