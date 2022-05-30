@@ -3,7 +3,7 @@ package network;
 import java.io.BufferedReader;
 import java.io.IOException;
 
-public class ListenerThread implements Runnable{
+public class ListenerThread implements Runnable {
     private BufferedReader in;
 
     public ListenerThread(BufferedReader in) {
@@ -23,7 +23,7 @@ public class ListenerThread implements Runnable{
         }
     }
 
-    public void stop()  {
+    public void stop() {
         try {
             in.close();
         } catch (IOException e) {

@@ -28,7 +28,7 @@ public class Server {
         ServerClient.tgb = new Scanner(System.in);
         try {
             ServerClient.out = new PrintWriter(ServerClient.socket.getOutputStream(), true);
-            ServerClient.in =  new ListenerThread(new BufferedReader(new InputStreamReader(ServerClient.socket.getInputStream())));
+            ServerClient.in = new ListenerThread(new BufferedReader(new InputStreamReader(ServerClient.socket.getInputStream())));
         } catch (IOException e) {
             e.printStackTrace();
         }

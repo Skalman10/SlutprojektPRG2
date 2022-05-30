@@ -20,18 +20,19 @@ public class Client {
             socket = new Socket(ip, port);
             tgb = new Scanner(System.in);
             out = new PrintWriter(socket.getOutputStream(), true);
-            in =  new ListenerThread(new BufferedReader(new InputStreamReader(socket.getInputStream())));
+            in = new ListenerThread(new BufferedReader(new InputStreamReader(socket.getInputStream())));
             listener = new Thread(in);
         } catch (Exception e) {
             System.exit(0);
         }
     }
+
     public Client(String ip) {
         try {
             socket = new Socket(ip, 3300);
             tgb = new Scanner(System.in);
             out = new PrintWriter(socket.getOutputStream(), true);
-            in =  new ListenerThread(new BufferedReader(new InputStreamReader(socket.getInputStream())));
+            in = new ListenerThread(new BufferedReader(new InputStreamReader(socket.getInputStream())));
             listener = new Thread(in);
         } catch (Exception e) {
             System.exit(0);
