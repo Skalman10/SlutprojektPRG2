@@ -48,11 +48,29 @@ public class TIAR {
     }
 
     private boolean diagonal() {
-        return false;
+        boolean win = false;
+        if (field[1][1]!=0) {
+            if (field[0][0] == field[1][1] && field[1][1] == field[2][2]) {
+                win = true;
+            } else {
+                if (field[0][2] == field[1][1] && field[1][1] == field[2][0]) {
+                    win = true;
+                }
+            }
+        }
+        return win;
     }
 
     private boolean vertical() {
-        return false;
+        boolean win = false;
+        for (int i = 0; i < this.field.length; i++) {
+            if (field[0][i] != 0) {
+                if (field[0][i] == field[1][i] && field[1][i] == field[2][i]) {
+                    win = true;
+                }
+            }
+        }
+        return win;
     }
 
     private boolean horizontal() {
@@ -65,5 +83,11 @@ public class TIAR {
             }
         }
         return win;
+    }
+
+    public void printMatrix() {
+        for (int i =0;i<field.length;i++) {
+            System.out.println(field[i][0]+" "+field[i][1]+" "+field[i][2]);
+        }
     }
 }

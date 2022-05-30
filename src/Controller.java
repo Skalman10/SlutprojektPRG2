@@ -33,7 +33,7 @@ public class Controller {
             player = (i) % 2 + 1;
             game.getMove();
             game.playerMove(player, game.move);
-            System.out.println(Arrays.deepToString(game.field));
+            game.printMatrix();
             if (game.checkWin()) {
                 System.out.println("Spelare " + player + " vann spelet!");
             }
