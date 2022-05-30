@@ -24,6 +24,15 @@ public class Controller {
         }
 
          */
+        NetworkConfig config = new NetworkConfig();
+        if (config.getMode().equals("server")) {
+            Server server = new Server(config.getPort());
+            server.start();
+        } else if (config.getMode().equals("client")) {
+            Client client = new Client(config.getIp(),config.getPort());
+            client.start();
+        }
+
         TIAR game = new TIAR(3);
         System.out.println(game.field.length);
         Point point = new Point();
@@ -36,6 +45,7 @@ public class Controller {
             game.printMatrix();
             if (game.checkWin()) {
                 System.out.println("Spelare " + player + " vann spelet!");
+                break;
             }
         }
     }
