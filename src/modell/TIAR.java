@@ -58,9 +58,11 @@ public class TIAR {
     private boolean horizontal() {
         boolean win = false;
         for (int i = 0; i < this.field.length; i++) {
-                if (field[i][0] == field[i][1] || field[i][0] == field[i][2]) {
-                    System.out.println("Spelare " + field[i][0] + " vann!");
+            if (field[i][0] != 0) {
+                if (field[i][0] == field[i][1] && field[i][1] == field[i][2]) {
+                    win = true;
                 }
+            }
         }
         return win;
     }

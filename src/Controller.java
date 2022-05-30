@@ -34,11 +34,9 @@ public class Controller {
             game.getMove();
             game.playerMove(player, game.move);
             System.out.println(Arrays.deepToString(game.field));
-            /*
             if (game.checkWin()) {
                 System.out.println("Spelare " + player + " vann spelet!");
             }
-             */
         }
     }
 
