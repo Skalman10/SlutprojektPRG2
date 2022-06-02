@@ -4,12 +4,17 @@ import network.Client;
 import network.Server;
 
 import javax.swing.*;
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.Arrays;
 import java.util.Scanner;
 
 public class Controller {
     private int player;
     private Point move;
+    private String ip;
+    private int port;
+    private String mode;
 
     public void start() {
         /*
@@ -24,6 +29,24 @@ public class Controller {
         }
 
          */
+        try {
+            File config = new File("NetworkConfig.txt");
+            Scanner configIn = new Scanner(config);
+            String s;
+            s = configIn.nextLine();
+            ip = s.substring(s.indexOf("=")+1);
+            System.out.println(ip);
+            s = configIn.nextLine();
+            port = Integer.parseInt(s.substring(s.indexOf("=")+1));
+            System.out.println(port);
+            s = configIn.nextLine();
+            mode = s.substring(s.indexOf("=")+1);
+            System.out.println(mode);
+        } catch (FileNotFoundException e) {
+            System.out.println("Config file not found!");
+            e.printStackTrace();
+        }
+/*
         NetworkConfig config = new NetworkConfig();
         if (config.getMode().equals("server")) {
             Server server = new Server(config.getPort());
@@ -48,6 +71,8 @@ public class Controller {
                 break;
             }
         }
+        */
+
     }
 
     public static void main(String[] args) {

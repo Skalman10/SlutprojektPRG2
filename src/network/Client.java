@@ -15,7 +15,6 @@ public class Client {
     public Thread listener;
 
     public Client(String ip, int port) {
-        System.out.println(ip);
         try {
             socket = new Socket(ip, port);
             tgb = new Scanner(System.in);
