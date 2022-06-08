@@ -9,7 +9,7 @@ import java.net.Socket;
 import java.util.Scanner;
 
 public class Server {
-    private Client ServerClient;
+    public Client ServerClient;
     private ServerSocket serverSocket;
 
     public Server(int port) {

@@ -17,18 +17,6 @@ public class Controller {
     private String mode;
 
     public void start() {
-        /*
-        String option = (String) JOptionPane.showInputDialog(null, "Server or client?", JOptionPane.QUESTION_MESSAGE);
-        if (option.equals("server")) {
-            Server server = new Server(12345);
-            server.start();
-        } else {
-            //String ip = (String) JOptionPane.showInputDialog(null,"IP?","Connect to..",JOptionPane.QUESTION_MESSAGE);
-            Client client = new Client("",12345);
-            client.start();
-        }
-
-         */
         try {
             File config = new File("NetworkConfig.txt");
             Scanner configIn = new Scanner(config);
@@ -46,33 +34,34 @@ public class Controller {
             System.out.println("Config file not found!");
             e.printStackTrace();
         }
-/*
-        NetworkConfig config = new NetworkConfig();
-        if (config.getMode().equals("server")) {
-            Server server = new Server(config.getPort());
-            server.start();
-        } else if (config.getMode().equals("client")) {
-            Client client = new Client(config.getIp(),config.getPort());
+
+
+         if (mode.equals("client")) {
+            Client client = new Client(ip, port);
             client.start();
         }
 
-        TIAR game = new TIAR(3);
-        System.out.println(game.field.length);
-        Point point = new Point();
-        int player;
-        for (int i = 0; i < game.field.length * game.field.length; i++) {
-            game.move = new Point();
-            player = (i) % 2 + 1;
-            game.getMove();
-            game.playerMove(player, game.move);
-            game.printMatrix();
-            if (game.checkWin()) {
-                System.out.println("Spelare " + player + " vann spelet!");
-                break;
+        if (mode.equals("server")) {
+            Server server = new Server(port);
+            server.start();
+            TIAR game = new TIAR(3);
+            System.out.println(game.field.length);
+            for (int i = 0; i < game.field.length * game.field.length; i++) {
+                game.printMatrix();
+                for (int f =0;f<game.field.length;f++) {
+                    server.ServerClient.out.println
+                            (game.field[f][0]+" "+game.field[f][1]+" "+game.field[f][2]);
+                }
+                game.move = new Point();
+                player = (i) % 2 + 1;
+                game.getMove();
+                game.playerMove(player, game.move);
+                if (game.checkWin()) {
+                    System.out.println("Spelare " + player + " vann spelet!");
+                    break;
+                }
             }
         }
-        */
-
     }
 
     public static void main(String[] args) {
