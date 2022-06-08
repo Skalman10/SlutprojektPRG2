@@ -44,9 +44,10 @@ public class Client {
     public void start() {
         listener.start();
         boolean run = true;
-        while (run) {
-            String msg = tgb.nextLine();
-            out.println(msg);
+        String msg="";
+        while (msg != "quit") {
+            msg = tgb.nextLine();
+            out.println("Client: " + msg);
         }
         out.close();
         try {

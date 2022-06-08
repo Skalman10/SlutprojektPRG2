@@ -34,9 +34,4 @@ public class Server {
         }
         ServerClient.listener = new Thread(ServerClient.in);
     }
-
-    public void start() {
-        System.out.println("Den starta");
-        this.ServerClient.start();
-    }
 }

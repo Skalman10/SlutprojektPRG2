@@ -23,13 +23,10 @@ public class Controller {
             String s;
             s = configIn.nextLine();
             ip = s.substring(s.indexOf("=")+1);
-            System.out.println(ip);
             s = configIn.nextLine();
             port = Integer.parseInt(s.substring(s.indexOf("=")+1));
-            System.out.println(port);
             s = configIn.nextLine();
             mode = s.substring(s.indexOf("=")+1);
-            System.out.println(mode);
         } catch (FileNotFoundException e) {
             System.out.println("Config file not found!");
             e.printStackTrace();
@@ -43,9 +40,8 @@ public class Controller {
 
         if (mode.equals("server")) {
             Server server = new Server(port);
-            server.start();
+            server.ServerClient.listener.start();
             TIAR game = new TIAR(3);
-            System.out.println(game.field.length);
             for (int i = 0; i < game.field.length * game.field.length; i++) {
                 game.printMatrix();
                 for (int f =0;f<game.field.length;f++) {
@@ -58,6 +54,7 @@ public class Controller {
                 game.playerMove(player, game.move);
                 if (game.checkWin()) {
                     System.out.println("Spelare " + player + " vann spelet!");
+                    server.ServerClient.out.println("Spelare " + player + " vann spelet!");
                     break;
                 }
             }
